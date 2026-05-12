@@ -25,6 +25,8 @@ const Recovery = lazy(() => import('./components/sections/Recovery'))
 const Testimonials = lazy(() => import('./components/sections/Testimonials'))
 const FAQ = lazy(() => import('./components/sections/FAQ'))
 const Contact = lazy(() => import('./components/sections/Contact'))
+const Schedule = lazy(() => import('./components/sections/Schedule'))
+const Shop = lazy(() => import('./components/sections/Shop'))
 const Login = lazy(() => import('./components/auth/Login'))
 const Signup = lazy(() => import('./components/auth/Signup'))
 
@@ -54,8 +56,10 @@ function HomePage({ loading, setLoading }) {
                   <Trainers />
                   <Membership />
                   <Transformations />
+                  <Schedule />
                   <WorkoutReels />
                   <Gallery />
+                  <Shop />
                   <Recovery />
                   <Testimonials />
                   <FAQ />
