@@ -1,138 +1,133 @@
 import { motion } from 'framer-motion'
-import { Dumbbell, Flame, Zap, Trophy, Target, Activity, Heart, Globe, ArrowRight } from 'lucide-react'
+import { ArrowRight, Zap } from 'lucide-react'
 
-const programs = [
+const protocols = [
   {
+    id: "01",
     title: "Strength Architecture",
-    description: "Build raw power and structural integrity with elite coaching.",
-    icon: <Dumbbell size={28} />,
-    tag: "HYPERTROPHY"
+    tag: "Structural Integrity",
+    description: "Re-engineer your musculoskeletal foundation with elite-grade hypertrophy and structural load protocols.",
+    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80"
   },
   {
+    id: "02",
     title: "Metabolic Storm",
-    description: "Torch body fat with science-backed metabolic conditioning protocols.",
-    icon: <Flame size={28} />,
-    tag: "BURN"
+    tag: "Bio-Thermal Burn",
+    description: "Weaponize your metabolism through science-backed conditioning engineered for maximum caloric output.",
+    image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80"
   },
   {
+    id: "03",
     title: "High-Velocity HIIT",
-    description: "High intensity interval training for maximum cardiovascular performance.",
-    icon: <Zap size={28} />,
-    tag: "AEROBIC"
+    tag: "Cardiac Dominance",
+    description: "Push cardiovascular boundaries with high-intensity interval training designed for elite endurance.",
+    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80"
   },
   {
+    id: "04",
     title: "Functional Flow",
-    description: "Move with precision. Optimize your biomechanics and mobility.",
-    icon: <Target size={28} />,
-    tag: "MOBILITY"
-  },
-  {
-    title: "Combat Protocol",
-    description: "Train like a pro athlete. Develop speed, power, and mental grit.",
-    icon: <Trophy size={28} />,
-    tag: "ATHLETIC"
-  },
-  {
-    title: "Elite Mentorship",
-    description: "1-on-1 private performance coaching tailored to your mission.",
-    icon: <Activity size={28} />,
-    tag: "PRIVATE"
-  },
-  {
-    title: "Bio-Nutrition",
-    description: "Fuel your evolution. Data-driven nutrition plans for elite output.",
-    icon: <Heart size={28} />,
-    tag: "RECOVERY"
-  },
-  {
-    title: "Global Remote",
-    description: "Access the Fitcraz method from anywhere in the ecosystem.",
-    icon: <Globe size={28} />,
-    tag: "REMOTE"
+    tag: "Kinetic Precision",
+    description: "Optimize biomechanics and joint health through movement protocols that restore natural mobility.",
+    image: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80"
   }
 ]
 
 export default function Programs() {
   return (
-    <section id="programs" className="py-40 bg-brand-black relative overflow-hidden border-b border-white/5">
-      {/* Decorative Glows */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-red/5 blur-[200px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-white/5 blur-[200px] rounded-full pointer-events-none" />
-
+    <section id="programs" className="py-48 bg-brand-void relative overflow-hidden border-b border-white/5">
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <div className="text-center mb-32">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="flex items-center justify-center gap-3 mb-6"
-          >
-            <Activity className="w-5 h-5 text-brand-red" />
-            <span className="text-[10px] uppercase tracking-[0.5em] font-black text-brand-red">Training Protocols</span>
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-5xl md:text-8xl font-display font-black leading-[0.85] tracking-tighter text-white uppercase italic"
-          >
-            Choose your <br />
-            <span className="text-brand-red not-italic">Evolution.</span>
-          </motion.h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {programs.map((program, i) => (
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-32 gap-12">
+          <div className="max-w-2xl">
             <motion.div
-              key={program.title}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-4 mb-8"
+            >
+              <div className="w-12 h-[1px] bg-brand-red" />
+              <span className="text-[10px] uppercase tracking-[0.6em] font-black text-brand-red">Training Protocols</span>
+            </motion.div>
+            <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * i, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
-              className="group"
+              className="text-[clamp(3.5rem,10vw,7.5rem)] font-display font-black leading-[0.8] tracking-cinematic text-white uppercase italic"
             >
-              <div className="glass-dark h-full p-10 rounded-[2.5rem] border border-white/5 group-hover:border-brand-red/30 transition-all duration-700 relative overflow-hidden flex flex-col items-start shadow-2xl">
-                {/* Tag */}
-                <div className="mb-10 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 group-hover:border-brand-red/20 group-hover:bg-brand-red/5 transition-all">
-                   <span className="text-[8px] font-black uppercase tracking-[0.2em] text-white/40 group-hover:text-brand-red">{program.tag}</span>
-                </div>
+              Select your <br />
+              <span className="text-brand-red not-italic">Trajectory.</span>
+            </motion.h2>
+          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="flex flex-col gap-8 max-w-sm"
+          >
+            <p className="text-brand-gray text-xl font-medium leading-tight tracking-tight opacity-60">
+              Each protocol is an engineered pathway to physiological dominance. No filler. Just performance.
+            </p>
+          </motion.div>
+        </div>
 
-                {/* Icon */}
-                <div className="w-20 h-20 rounded-2xl bg-brand-red/5 border border-brand-red/10 flex items-center justify-center text-brand-red mb-10 group-hover:bg-brand-red group-hover:text-white transition-all duration-700 shadow-xl">
-                  {program.icon}
-                </div>
-
-                <h3 className="text-2xl font-display font-black italic uppercase tracking-tighter text-white mb-4 group-hover:text-brand-red transition-colors leading-none">
-                  {program.title}
-                </h3>
-
-                <p className="text-brand-gray text-xs font-medium leading-relaxed mb-10 opacity-60 flex-grow">
-                  {program.description}
-                </p>
-
-                <div className="flex items-center gap-4 text-white/20 font-black uppercase text-[9px] tracking-widest group-hover:text-brand-red transition-colors">
-                  Inquire Protocol
-                  <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
-                </div>
-
-                {/* Ambient Hover Glow */}
-                <div className="absolute -inset-10 bg-brand-red/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {protocols.map((program, i) => (
+            <motion.div
+              key={program.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true }}
+              className="group relative aspect-[16/10] overflow-hidden rounded-[3rem] border border-white/5 cursor-pointer"
+            >
+              {/* Cinematic Background Image Layer */}
+              <div className="absolute inset-0 bg-brand-surface group-hover:scale-105 transition-transform duration-[2s] ease-expo">
+                <img 
+                  src={program.image} 
+                  alt={program.title}
+                  className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-1000"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-void via-brand-void/20 to-transparent z-10" />
+                <div className="absolute inset-0 bg-brand-red/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
               </div>
+
+              {/* Content Overlay */}
+              <div className="absolute inset-0 z-20 p-12 md:p-16 flex flex-col justify-between">
+                <div className="flex justify-between items-start">
+                  <div className="px-6 py-2 rounded-full glass border border-white/10 text-[9px] font-black uppercase tracking-[0.4em] text-white">
+                    {program.tag}
+                  </div>
+                  <div className="w-16 h-16 rounded-full glass flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-4 group-hover:translate-y-0">
+                    <ArrowRight size={24} />
+                  </div>
+                </div>
+
+                <div className="max-w-md">
+                  <div className="text-brand-red text-sm font-black mb-4 flex items-center gap-3">
+                    <span className="w-8 h-[1px] bg-brand-red" />
+                    Protocol {program.id}
+                  </div>
+                  <h3 className="text-4xl md:text-6xl font-display font-black italic uppercase text-white mb-6 tracking-cinematic leading-none">
+                    {program.title}
+                  </h3>
+                  <p className="text-brand-gray text-lg font-medium leading-snug tracking-tight opacity-0 group-hover:opacity-100 transition-all duration-700 max-h-0 group-hover:max-h-32 overflow-hidden">
+                    {program.description}
+                  </p>
+                </div>
+              </div>
+
+              {/* Edge Lighting */}
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
             </motion.div>
           ))}
         </div>
 
-        {/* Dynamic CTA */}
-        <div className="mt-32 text-center">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-16 py-7 bg-white text-brand-black font-black uppercase tracking-[0.4em] text-[11px] rounded-full hover:bg-brand-red hover:text-white transition-all duration-700 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
-          >
-            Initialize Full Roster
-          </motion.button>
-          <p className="mt-8 text-white/20 text-[8px] font-black uppercase tracking-[0.5em]">Current Global Availability: 98%</p>
+        <div className="mt-24 flex justify-center">
+          <button className="group flex items-center gap-12 text-white/40 hover:text-white transition-all duration-700">
+            <span className="text-[10px] font-black uppercase tracking-[0.8em]">Explore Full Matrix</span>
+            <div className="w-20 h-20 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-brand-red group-hover:border-brand-red transition-all duration-700">
+              <Zap size={24} className="group-hover:fill-white transition-all" />
+            </div>
+          </button>
         </div>
       </div>
     </section>

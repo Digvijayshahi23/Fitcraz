@@ -34,8 +34,8 @@ function HomePage({ loading, setLoading }) {
   return (
     <>
       <Helmet>
-        <title>FITCRAZ | Elite Performance Ecosystem</title>
-        <meta name="description" content="Experience the next generation of high-performance athletic training. Cinematic environments, elite coaching, and architectural precision." />
+        <title>FITCRAZ ELITE | ANTIGRAVITY EDITION</title>
+        <meta name="description" content="The world's most immersive luxury athletic ecosystem. Engineered for elite performance, architectural precision, and physiological dominance." />
       </Helmet>
 
       <AnimatePresence mode="wait">

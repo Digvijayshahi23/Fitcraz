@@ -2,14 +2,17 @@
 
 @theme {
   --color-brand-red: #FF3B30;
-  --color-brand-black: #000000;
+  --color-brand-black: #050505;
+  --color-brand-void: #000000;
   --color-brand-gray: #A1A1AA;
+  --color-brand-surface: #0A0A0A;
 
   --font-display: "Outfit", "Inter", sans-serif;
   --font-body: "Inter", sans-serif;
 
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
 }
 
 @keyframes float {
@@ -17,37 +20,41 @@
   50% { transform: translateY(-20px); }
 }
 
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
 :root {
   background-color: #000000;
   color: #ffffff;
   font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   margin: 0;
   overflow-x: hidden;
   background: #000;
+  letter-spacing: -0.01em;
 }
 
 @layer utilities {
   .glass {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+    @apply bg-white/[0.03] backdrop-blur-2xl border border-white/10;
   }
 
   .glass-dark {
-    @apply bg-black/60 backdrop-blur-3xl border border-white/5;
-  }
-
-  .neon-text-red {
-    text-shadow: 0 0 10px rgba(255, 59, 48, 0.5), 0 0 20px rgba(255, 59, 48, 0.3);
+    @apply bg-black/80 backdrop-blur-3xl border border-white/5;
   }
 
   .neon-glow-red {
-    box-shadow: 0 0 30px rgba(255, 59, 48, 0.4);
+    box-shadow: 0 0 50px rgba(255, 59, 48, 0.2);
   }
 
-  .bg-noise {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  .text-shadow-premium {
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
 
   .no-scrollbar::-webkit-scrollbar {
@@ -69,16 +76,8 @@ html.lenis {
   scroll-behavior: auto;
 }
 
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -86,10 +85,24 @@ html.lenis {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #222;
+  background: #1a1a1a;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #FF3B30;
+}
+
+/* Typography Refinements */
+h1, h2, h3, h4 {
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
+
+.tracking-cinematic {
+  letter-spacing: -0.07em;
+}
+
+.mask-radial-faded {
+  mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
 }
