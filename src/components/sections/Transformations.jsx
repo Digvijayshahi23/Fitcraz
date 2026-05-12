@@ -12,7 +12,7 @@ const transformations = [
       { label: "LEAN MASS", val: "+9KG" },
       { label: "PEAK POWER", val: "+45%" }
     ],
-    quote: "Fitcraz protocols redefined what I thought was biologically possible. This is true metamorphosis."
+    quote: "Antigravity protocols redefined what I thought was biologically possible. This is true metamorphosis."
   },
   {
     name: "Elena Vance",
@@ -23,7 +23,7 @@ const transformations = [
       { label: "ENDURANCE", val: "ELITE" },
       { label: "RECOVERY", val: "99%" }
     ],
-    quote: "The integration of bio-recovery and high-intensity protocols is the Fitcraz secret. I am a different athlete."
+    quote: "The integration of bio-recovery and high-intensity protocols is the Antigravity secret. I am a different athlete."
   }
 ]
 

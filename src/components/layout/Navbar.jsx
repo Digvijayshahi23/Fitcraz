@@ -37,11 +37,11 @@ export default function Navbar() {
           }`}>
           {/* Logo */}
           <a href="#home" className="group flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-[0_0_20px_#FF3B30]">
-              <img src="/logo.png" alt="Fitcraz" className="w-full h-full object-contain" />
+            <div className="w-10 h-10 rounded-xl bg-brand-red flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-xl">
+              <Shield size={20} className="text-white fill-white" />
             </div>
             <h2 className="text-2xl font-display font-black tracking-tighter text-white uppercase italic">
-              FITCRAZ<span className="text-white/20 not-italic">.</span>
+              ANTIGRAVITY ELITE<span className="text-white/20 not-italic">.</span>
             </h2>
           </a>
 
@@ -105,7 +105,7 @@ export default function Navbar() {
                   <Zap className="text-white w-6 h-6 fill-white" />
                 </div>
                 <h2 className="text-2xl font-display font-black tracking-tighter text-white uppercase italic">
-                  FITCRAZ<span className="text-white/20 not-italic">.</span>
+                  ANTIGRAVITY ELITE<span className="text-white/20 not-italic">.</span>
                 </h2>
               </div>
               <button

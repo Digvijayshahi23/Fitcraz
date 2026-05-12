@@ -46,7 +46,7 @@ const programs = [
   },
   {
     title: "Global Remote",
-    description: "Access the Fitcraz method from anywhere in the ecosystem.",
+    description: "Access the Antigravity method from anywhere in the ecosystem.",
     icon: <Globe size={28} />,
     tag: "REMOTE"
   }

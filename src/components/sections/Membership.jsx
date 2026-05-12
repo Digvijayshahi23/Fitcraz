@@ -6,7 +6,7 @@ const tiers = [
     name: "Core Access",
     price: "99",
     period: "month",
-    description: "Foundational access to the Fitcraz arena.",
+    description: "Foundational access to the Antigravity arena.",
     features: ["Open Gym Access", "Standard Recovery Hub", "Mobile App Integration", "Basic Protocol Access"],
     icon: Zap,
     color: "text-brand-red",

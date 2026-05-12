@@ -72,28 +72,6 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/20 to-transparent opacity-90" />
             </div>
 
-            {/* Floating Achievement Card */}
-            <motion.div
-              initial={{ x: 30, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.8, duration: 1 }}
-              viewport={{ once: true }}
-              className="absolute -bottom-12 -right-12 glass-dark p-10 rounded-[3rem] border border-white/10 hidden xl:block backdrop-blur-3xl shadow-2xl"
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-10 h-10 rounded-2xl bg-brand-red flex items-center justify-center shadow-[0_0_20px_#FF3B30]">
-                  <Activity className="w-5 h-5 text-white fill-white" />
-                </div>
-                <span className="text-[10px] text-white font-black uppercase tracking-[0.3em]">Live Bio-Telemetry</span>
-              </div>
-              <p className="text-white font-display font-black italic text-3xl tracking-tight mb-2 uppercase">
-                Peak Output
-              </p>
-              <p className="text-brand-red text-[10px] font-black uppercase tracking-[0.4em]">
-                System Synchronized
-              </p>
-            </motion.div>
-
             {/* Glowing Accent */}
             <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-brand-red/5 blur-[150px] rounded-full" />
           </motion.div>
@@ -128,7 +106,7 @@ export default function About() {
               viewport={{ once: true }}
               className="text-xl md:text-2xl text-brand-gray mb-20 leading-relaxed font-medium opacity-80"
             >
-              Fitcraz is the world's most advanced athletic ecosystem. We integrate cinematic design with world-class bio-technology to push the boundaries of human performance.
+              Antigravity is the world's most advanced athletic ecosystem. We integrate cinematic design with world-class bio-technology to push the boundaries of human performance.
             </motion.p>
 
             {/* Counters */}

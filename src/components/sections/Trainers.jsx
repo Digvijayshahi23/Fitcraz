@@ -152,7 +152,7 @@ export default function Trainers() {
         >
           <div className="flex flex-col gap-2">
             <h4 className="text-2xl font-display font-black italic uppercase tracking-tighter text-white">Elite Coaching Certification</h4>
-            <p className="text-white/40 text-sm font-medium">All Fitcraz architects undergo a 6-month specialized biometric performance training.</p>
+            <p className="text-white/40 text-sm font-medium">All Antigravity architects undergo a 6-month specialized biometric performance training.</p>
           </div>
           <div className="flex -space-x-6">
             {[1, 2, 3, 4, 5].map((i) => (

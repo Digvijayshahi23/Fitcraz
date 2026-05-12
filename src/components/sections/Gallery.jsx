@@ -136,7 +136,7 @@ export default function Gallery() {
                 className="w-full h-auto rounded-[3rem] shadow-2xl border border-white/10"
               />
               <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-white/20 text-[10px] uppercase tracking-[0.5em] font-medium">
-                Fitcraz Visual Feed
+                Antigravity Visual Feed
               </div>
             </motion.div>
           </motion.div>

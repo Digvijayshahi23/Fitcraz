@@ -118,30 +118,14 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Hero Telemetry Overlay */}
-      <div className="absolute bottom-12 left-12 right-12 flex justify-between items-end z-30 pointer-events-none">
-        <div className="flex gap-12">
-          {[
-            { icon: <Zap size={18} />, label: "PEAK OUTPUT", val: "1.2kW" },
-            { icon: <Shield size={18} />, label: "SYSTEM STATUS", val: "ELITE" },
-            { icon: <Target size={18} />, label: "ACCURACY", val: "98.5%" }
-          ].map((item, i) => (
-            <div key={i} className="hidden md:block">
-              <div className="flex items-center gap-2 text-brand-red mb-1">
-                {item.icon}
-                <span className="text-[8px] font-black uppercase tracking-widest">{item.label}</span>
-              </div>
-              <div className="text-[10px] text-white font-black italic tracking-widest uppercase">{item.val}</div>
-            </div>
-          ))}
-        </div>
-
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 3, repeat: Infinity }}
           className="flex flex-col items-center gap-4"
         >
-          <span className="text-[8px] text-white/40 uppercase tracking-[0.4em] font-black rotate-90 origin-right translate-x-2">SCROLL TO EVOLVE</span>
+          <span className="text-[8px] text-white/40 uppercase tracking-[0.4em] font-black">SCROLL TO EVOLVE</span>
           <div className="w-[1px] h-24 bg-gradient-to-b from-brand-red to-transparent" />
         </motion.div>
       </div>
