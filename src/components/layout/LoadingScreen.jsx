@@ -60,9 +60,9 @@ export default function LoadingScreen({ onComplete }) {
           className="relative"
         >
           <h1 className="text-7xl md:text-9xl font-display font-black tracking-tighter italic text-white flex items-center uppercase leading-none">
-            ANTI
+            FIT
             <span className="text-brand-red relative">
-              GRAVITY
+              CRAZ
               <motion.div
                 animate={{ opacity: [0, 1, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
