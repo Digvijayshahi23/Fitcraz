@@ -1,0 +1,4 @@
+/* Custom App-specific styles if any */
+.ease-expo {
+  transition-timing-function: cubic-bezier(0.87, 0, 0.13, 1);
+}
