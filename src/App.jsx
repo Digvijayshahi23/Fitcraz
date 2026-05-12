@@ -9,6 +9,7 @@ import Navbar from './components/layout/Navbar'
 import SmoothScroll from './components/layout/SmoothScroll'
 import GlobalEffects from './components/ui/GlobalEffects'
 import Footer from './components/layout/Footer'
+import MobileDock from './components/layout/MobileDock'
 import './App.css'
 
 // Lazy loaded sections for performance
@@ -43,6 +44,7 @@ function HomePage({ loading, setLoading }) {
             <div className="relative bg-brand-black">
               <GlobalEffects />
               <Navbar />
+              <MobileDock />
 
               <main>
                 <Suspense fallback={<div className="h-screen bg-brand-black" />}>

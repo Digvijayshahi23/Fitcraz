@@ -27,7 +27,7 @@ export default function Hero() {
   const springY = useSpring(mousePos.y, { stiffness: 100, damping: 30 })
 
   return (
-    <section ref={containerRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-brand-black">
+    <section ref={containerRef} className="relative h-[100dvh] w-full overflow-hidden flex items-center justify-center bg-brand-black">
       {/* Cinematic Media Layer */}
       <motion.div style={{ scale, y }} className="absolute inset-0 z-0">
         <video
@@ -68,7 +68,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[clamp(3rem,10vw,8.5rem)] font-display font-black leading-[0.8] tracking-tighter text-white uppercase italic mb-12"
+            className="text-[clamp(2.5rem,15vw,8.5rem)] font-display font-black leading-[0.85] md:leading-[0.8] tracking-tighter text-white uppercase italic mb-8 md:mb-12"
           >
             Forged <br />
             Through <span className="text-brand-red not-italic">Performance.</span>

@@ -193,7 +193,7 @@ export default function WorkoutReels() {
   }
 
   return (
-    <section id="workout-reels" className="relative h-screen bg-brand-black overflow-hidden border-b border-white/5">
+    <section id="workout-reels" className="relative h-[100dvh] bg-brand-black overflow-hidden border-b border-white/5">
       {/* Header Overlay */}
       <div className="absolute top-0 left-0 right-0 p-12 md:p-16 z-40 flex justify-between items-start pointer-events-none">
         <motion.div
