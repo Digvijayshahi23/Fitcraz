@@ -17,6 +17,10 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 .DS_Store
+# Build artifacts and logs
+build_error.txt
+rebrand_revert.cjs
+.gemini/
 *.suo
 *.ntvs*
 *.njsproj
