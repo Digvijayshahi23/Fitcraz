@@ -1,120 +1,121 @@
 import { motion } from 'framer-motion'
-import { Check } from 'lucide-react'
+import { Check, Zap, Trophy, Crown, ArrowRight, Activity, Shield } from 'lucide-react'
 
-const plans = [
+const tiers = [
   {
-    name: "Starter",
-    price: "49",
-    features: ["Access to Base Gym", "2 Group Classes/Mo", "Basic App Access", "Locker Access"],
-    color: "white/10",
+    name: "Core Access",
+    price: "99",
+    period: "month",
+    description: "Foundational access to the Antigravity arena.",
+    features: ["Open Gym Access", "Standard Recovery Hub", "Mobile App Integration", "Basic Protocol Access"],
+    icon: Zap,
+    color: "text-brand-red",
     popular: false
   },
   {
-    name: "Beast Mode",
-    price: "99",
-    features: ["24/7 Elite Access", "Unlimited Classes", "Pro App Features", "Personal Training (1/Mo)", "Recovery Lounge"],
-    color: "brand-red",
+    name: "Advanced Training",
+    price: "199",
+    period: "month",
+    description: "Optimized for dedicated athletes pushing boundaries.",
+    features: ["Unlimited Group Sessions", "Priority Arena Booking", "Elite Bio-Analytics", "Custom Protocol Design", "Weekly Performance Audit"],
+    icon: Trophy,
+    color: "text-brand-red",
     popular: true
   },
   {
-    name: "Elite",
-    price: "199",
-    features: ["VIP Priority Access", "Personal Coaching (4/Mo)", "Nutrition Concierge", "Custom Meal Plans", "Merch Discounts"],
-    color: "brand-yellow",
+    name: "Full Club Experience",
+    price: "399",
+    period: "month",
+    description: "The absolute pinnacle of personalized training.",
+    features: ["1-on-1 Performance Coaching", "Private Arena Suite", "Personal Performance Architect", "Advanced Cryo-Recovery", "Global Concierge Access"],
+    icon: Crown,
+    color: "text-brand-red",
     popular: false
   },
   {
-    name: "VIP Transformation",
-    price: "499",
-    features: ["24/7 Dedicated Coach", "Daily Meal Delivery", "Private Training Suite", "Quarterly Blood Labs", "Global Site Access"],
-    color: "white/20",
+    name: "Personal Performance Manager",
+    price: "599",
+    period: "month",
+    description: "Full spectrum bio-optimization for the elite.",
+    features: ["Full Bio-Recovery & Nutrition", "Daily Performance Meals", "Weekly Blood Analysis", "Hyperbaric Chamber Access", "24/7 Medical Concierge"],
+    icon: Activity,
+    color: "text-brand-red",
     popular: false
   }
 ]
 
 export default function Membership() {
   return (
-    <section id="membership" className="py-32 bg-brand-black relative overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-24">
-          <motion.h4
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-brand-red font-black uppercase tracking-[0.4em] mb-4 text-sm italic"
+    <section id="membership" className="py-40 bg-brand-black relative overflow-hidden border-b border-white/5">
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+        <div className="text-center mb-28">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="flex items-center justify-center gap-3 mb-6"
           >
-            JOIN THE MOVEMENT
-          </motion.h4>
+            <Shield className="w-5 h-5 text-brand-red" />
+            <span className="text-[10px] uppercase tracking-[0.5em] font-black text-brand-red">Membership Protocols</span>
+          </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-8xl font-black italic uppercase tracking-tighter text-white"
+            transition={{ delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-5xl md:text-8xl font-display font-black leading-[0.85] tracking-tighter text-white uppercase italic"
           >
-            MEMBERSHIP <span className="text-brand-yellow">EXPERIENCE</span>
+            Invest in your <br />
+            <span className="text-brand-red not-italic">Evolution.</span>
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {plans.map((plan, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+          {tiers.map((tier, idx) => (
             <motion.div
-              key={plan.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: idx * 0.1 }}
+              key={tier.name}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
-              className={`relative flex flex-col p-10 rounded-[2.5rem] border transition-all duration-500 group ${
-                plan.popular 
-                  ? 'bg-brand-red border-transparent text-white shadow-[0_0_50px_rgba(255,26,26,0.3)] scale-105 z-10' 
-                  : 'bg-white/5 border-white/10 hover:border-brand-red/50 text-white'
-              }`}
+              className={`premium-card p-10 flex flex-col relative group ${tier.popular ? 'border-brand-red/50 shadow-[0_40px_100px_rgba(255,59,48,0.1)]' : ''}`}
             >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-brand-red font-black uppercase tracking-[0.2em] text-[10px] px-6 py-2 rounded-full shadow-lg">
-                  Most Popular
+              {tier.popular && (
+                <div className="absolute top-0 right-10 -translate-y-1/2 bg-brand-red text-white text-[8px] font-black uppercase tracking-[0.3em] px-6 py-2 rounded-full shadow-xl">
+                  Most Selected
                 </div>
               )}
 
               <div className="mb-10">
-                <h3 className="text-3xl font-black italic uppercase tracking-tighter mb-2">
-                  {plan.name}
-                </h3>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-black italic">$</span>
-                  <span className="text-6xl font-black italic tracking-tighter">{plan.price}</span>
-                  <span className={`text-sm font-bold uppercase tracking-widest ${plan.popular ? 'text-white/70' : 'text-white/30'}`}>/Mo</span>
+                <tier.icon className={`w-12 h-12 ${tier.color} mb-8 group-hover:scale-110 transition-transform duration-500`} />
+                <h3 className="text-2xl font-display font-black italic uppercase tracking-tighter text-white mb-2">{tier.name}</h3>
+                <p className="text-brand-gray text-[10px] font-medium leading-relaxed">{tier.description}</p>
+              </div>
+
+              <div className="mb-12 flex-grow">
+                <div className="flex items-end gap-2 mb-8">
+                  <span className="text-5xl font-display font-black italic text-white leading-none">${tier.price}</span>
+                  <span className="text-brand-gray text-[10px] uppercase font-black tracking-widest mb-1">/ {tier.period}</span>
                 </div>
+                
+                <ul className="space-y-4">
+                  {tier.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-4 group/item">
+                      <div className="w-5 h-5 rounded-full bg-brand-red/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-brand-red transition-colors mt-0.5">
+                        <Check size={10} className="text-brand-red group-hover/item:text-white" />
+                      </div>
+                      <span className="text-[11px] font-medium text-white/60 group-hover/item:text-white transition-colors">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="flex flex-col gap-4 mb-12 flex-grow">
-                {plan.features.map((feature) => (
-                  <div key={feature} className="flex items-center gap-3">
-                    <div className={`w-5 h-5 rounded-full flex items-center justify-center ${plan.popular ? 'bg-white text-brand-red' : 'bg-brand-red text-white'}`}>
-                      <Check size={12} strokeWidth={4} />
-                    </div>
-                    <span className={`text-sm font-bold tracking-tight ${plan.popular ? 'text-white/90' : 'text-white/60'}`}>
-                      {feature}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <button className={`w-full py-5 rounded-2xl font-black uppercase italic tracking-tighter text-xl transition-all duration-300 ${
-                plan.popular 
-                  ? 'bg-white text-brand-red hover:bg-brand-yellow hover:text-white' 
-                  : 'bg-brand-red text-white hover:bg-white hover:text-brand-black'
-              }`}>
-                Join Now
+              <button className={`w-full py-5 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] transition-all duration-700 flex items-center justify-center gap-4 group/btn ${tier.popular ? 'bg-brand-red text-white shadow-xl hover:shadow-brand-red/30' : 'bg-white/5 text-white border border-white/10 hover:bg-white hover:text-brand-black'}`}>
+                Select Protocol
+                <ArrowRight size={14} className="group-hover/btn:translate-x-2 transition-transform" />
               </button>
-
-              {/* Animated Background Shine */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-[2.5rem]" />
             </motion.div>
           ))}
-        </div>
-
-        <div className="mt-20 text-center">
-          <p className="text-white/30 font-bold uppercase tracking-[0.2em] text-xs">
-            All plans include access to our basic health tracking platform. Terms & conditions apply.
-          </p>
         </div>
       </div>
     </section>

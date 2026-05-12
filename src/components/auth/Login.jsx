@@ -40,7 +40,7 @@ export default function Login() {
             {...register("email")}
             type="email"
             className={`w-full bg-white/5 border ${errors.email ? 'border-brand-red' : 'border-white/10'} rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-brand-red transition-all`}
-            placeholder="commander@fitcraz.com"
+            placeholder="athlete@antigravity.fit"
           />
           {errors.email && <p className="text-brand-red text-[10px] font-bold uppercase ml-4">{errors.email.message}</p>}
         </div>

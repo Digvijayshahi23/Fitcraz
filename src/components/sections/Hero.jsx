@@ -1,107 +1,157 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
-import { ChevronDown } from 'lucide-react'
-import BackgroundParticles from '../ui/BackgroundParticles'
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import { useRef, useEffect, useState } from 'react'
+import { Play, Zap, Target, Trophy, ArrowRight, Shield } from 'lucide-react'
 
 export default function Hero() {
   const containerRef = useRef(null)
   const { scrollY } = useScroll()
-  
-  const y1 = useTransform(scrollY, [0, 500], [0, 200])
-  const opacity = useTransform(scrollY, [0, 300], [1, 0])
-  const scale = useTransform(scrollY, [0, 500], [1, 1.1])
+
+  const y = useTransform(scrollY, [0, 500], [0, 250])
+  const opacity = useTransform(scrollY, [0, 400], [1, 0])
+  const scale = useTransform(scrollY, [0, 500], [1, 1.2])
+
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePos({
+        x: (e.clientX / window.innerWidth - 0.5) * 20,
+        y: (e.clientY / window.innerHeight - 0.5) * 20
+      })
+    }
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
+
+  const springX = useSpring(mousePos.x, { stiffness: 100, damping: 30 })
+  const springY = useSpring(mousePos.y, { stiffness: 100, damping: 30 })
 
   return (
-    <section ref={containerRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center">
-      <BackgroundParticles />
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        <video 
-          autoPlay 
-          loop 
-          muted 
+    <section ref={containerRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-brand-black">
+      {/* Cinematic Media Layer */}
+      <motion.div style={{ scale, y }} className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
           playsInline
-          className="w-full h-full object-cover scale-105"
+          className="w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 transition-all duration-[2s]"
         >
-          {/* Using a high-quality placeholder gym video */}
           <source src="https://assets.mixkit.co/videos/preview/mixkit-man-training-with-battle-ropes-in-the-gym-23214-large.mp4" type="video/mp4" />
         </video>
-        {/* Cinematic Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/40 to-transparent" />
+
+        {/* Gradients & Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/60 to-transparent" />
         <div className="absolute inset-0 bg-brand-red/5" />
-        <div className="absolute inset-0 bg-noise opacity-30 pointer-events-none" />
-      </div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_0%,rgba(0,0,0,0.4)_100%)]" />
+      </motion.div>
+
+      {/* Floating Elements (Parallax) */}
+      <motion.div
+        style={{ x: springX, y: springY }}
+        className="absolute inset-0 pointer-events-none z-10"
+      >
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-brand-red/10 blur-[120px] rounded-full animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/5 blur-[150px] rounded-full" />
+      </motion.div>
 
       {/* Content Container */}
-      <div className="relative z-10 container mx-auto px-6 text-center pt-20">
-        <motion.div 
-          style={{ y: y1, opacity }}
-          className="max-w-5xl mx-auto"
+      <div className="relative z-20 container mx-auto px-6 text-center flex flex-col items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          style={{ opacity }}
+          className="flex flex-col items-center"
         >
-          <motion.h4
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-brand-yellow font-black uppercase tracking-[0.4em] mb-4 text-sm md:text-base italic"
-          >
-            TRAIN INSANE • STAY FIT • LIVE CRAZ
-          </motion.h4>
-          
           <motion.h1
-            initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ delay: 0.7, duration: 1, ease: "easeOut" }}
-            className="text-7xl md:text-[10rem] font-black uppercase italic leading-[0.8] tracking-tighter text-white mb-8"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="text-[clamp(3rem,10vw,8.5rem)] font-display font-black leading-[0.8] tracking-tighter text-white uppercase italic mb-12"
           >
-            UNLEASH <br /> 
-            <span className="text-transparent border-t-2 border-b-2 border-white/20 px-4 inline-block my-2">
-              YOUR INNER
-            </span> <br />
-            <span className="text-brand-red neon-text-red">BEAST</span>
+            Forged <br />
+            Through <span className="text-brand-red not-italic">Performance.</span>
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 1 }}
-            className="text-xl md:text-2xl text-white/70 font-medium max-w-2xl mx-auto mb-12"
-          >
-            Train harder. Push further. Become unstoppable. The elite global movement for those who crave more than just a workout.
-          </motion.p>
-
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.4, duration: 0.8 }}
-            className="flex flex-col md:flex-row items-center justify-center gap-6"
+            transition={{ duration: 1, delay: 0.2 }}
+            className="flex flex-col md:flex-row items-center gap-12 mb-16"
           >
-            <button className="group relative bg-brand-red text-white px-10 py-5 rounded-full font-black uppercase italic tracking-tighter text-xl overflow-hidden transition-all duration-300 hover:scale-105 neon-glow-red">
-              <span className="relative z-10">Start Transformation</span>
-              <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-expo" />
-              <span className="absolute inset-0 flex items-center justify-center text-brand-black font-black uppercase italic tracking-tighter text-xl translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-expo z-20">
-                Start Now
-              </span>
+            <p className="text-brand-gray text-xl md:text-2xl font-medium max-w-xl leading-relaxed">
+              Experience the pinnacle of athletic discipline. Join the elite global community dedicated to pushing beyond limits.
+            </p>
+            <div className="flex flex-col gap-2">
+              <div className="flex -space-x-4">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i} className="w-12 h-12 rounded-full border-2 border-brand-black overflow-hidden bg-brand-dark">
+                    <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="User" />
+                  </div>
+                ))}
+                <div className="w-12 h-12 rounded-full border-2 border-brand-black bg-brand-red flex items-center justify-center text-[10px] font-black shadow-[0_0_20px_rgba(255,59,48,0.5)]">
+                  +2k
+                </div>
+              </div>
+              <span className="text-[9px] font-black uppercase tracking-widest text-white/40">Active Athletes</span>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="flex flex-wrap justify-center gap-6"
+          >
+            <button className="px-12 py-6 bg-brand-red text-white rounded-full font-black text-xs uppercase tracking-[0.3em] shadow-[0_20px_50px_rgba(255,59,48,0.3)] hover:scale-105 transition-transform flex items-center gap-4 group">
+              JOIN THE ELITE
+              <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
             </button>
-            
-            <button className="glass-dark border-white/20 text-white px-10 py-5 rounded-full font-black uppercase italic tracking-tighter text-xl hover:bg-white/10 transition-all duration-300">
-              Explore Membership
+            <button className="px-12 py-6 glass-dark text-white rounded-full font-black text-xs uppercase tracking-[0.3em] border border-white/10 hover:bg-white hover:text-brand-black transition-all flex items-center gap-4 group">
+              <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-brand-black/10 transition-colors">
+                <Play size={12} className="fill-current ml-1" />
+              </div>
+              EXPLORE PROGRAMS
             </button>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div 
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
-      >
-        <span className="text-white/30 uppercase text-[10px] tracking-[0.3em] font-bold">Scroll Down</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-brand-red to-transparent" />
-      </motion.div>
+      {/* Hero Telemetry Overlay */}
+      <div className="absolute bottom-12 left-12 right-12 flex justify-between items-end z-30 pointer-events-none">
+        <div className="flex gap-12">
+          {[
+            { icon: <Zap size={18} />, label: "PEAK OUTPUT", val: "1.2kW" },
+            { icon: <Shield size={18} />, label: "SYSTEM STATUS", val: "ELITE" },
+            { icon: <Target size={18} />, label: "ACCURACY", val: "98.5%" }
+          ].map((item, i) => (
+            <div key={i} className="hidden md:block">
+              <div className="flex items-center gap-2 text-brand-red mb-1">
+                {item.icon}
+                <span className="text-[8px] font-black uppercase tracking-widest">{item.label}</span>
+              </div>
+              <div className="text-[10px] text-white font-black italic tracking-widest uppercase">{item.val}</div>
+            </div>
+          ))}
+        </div>
 
-      {/* Mouse Reactive Glow Effect (Simplified) */}
-      <div className="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),#ff1a1a_0%,transparent_50%)]" />
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 3, repeat: Infinity }}
+          className="flex flex-col items-center gap-4"
+        >
+          <span className="text-[8px] text-white/40 uppercase tracking-[0.4em] font-black rotate-90 origin-right translate-x-2">SCROLL TO EVOLVE</span>
+          <div className="w-[1px] h-24 bg-gradient-to-b from-brand-red to-transparent" />
+        </motion.div>
+      </div>
+
+      {/* Cinematic Scanning Line */}
+      <motion.div
+        animate={{ top: ['-10%', '110%'] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+        className="absolute left-0 right-0 h-[2px] bg-brand-red/10 blur-[2px] z-30 pointer-events-none"
+      />
     </section>
   )
 }

@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     // Check for persisted session
-    const savedUser = localStorage.getItem('fitcraz_user')
+    const savedUser = localStorage.getItem('antigravity_athlete')
     if (savedUser) {
       setUser(JSON.parse(savedUser))
     }
@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
     await new Promise(resolve => setTimeout(resolve, 2000))
     const mockUser = { email, name: 'Elite Athlete', id: '12345' }
     setUser(mockUser)
-    localStorage.setItem('fitcraz_user', JSON.stringify(mockUser))
+    localStorage.setItem('antigravity_athlete', JSON.stringify(mockUser))
     setLoading(false)
     return true
   }
@@ -31,14 +31,14 @@ export const AuthProvider = ({ children }) => {
     await new Promise(resolve => setTimeout(resolve, 2000))
     const mockUser = { email: data.email, name: data.name, id: '12345' }
     setUser(mockUser)
-    localStorage.setItem('fitcraz_user', JSON.stringify(mockUser))
+    localStorage.setItem('antigravity_athlete', JSON.stringify(mockUser))
     setLoading(false)
     return true
   }
 
   const logout = () => {
     setUser(null)
-    localStorage.removeItem('fitcraz_user')
+    localStorage.removeItem('antigravity_athlete')
   }
 
   return (
