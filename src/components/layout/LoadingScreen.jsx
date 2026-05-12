@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 
 export default function LoadingScreen({ onComplete }) {
   const [textIndex, setTextIndex] = useState(0)
-  const words = ["INITIALIZING", "CALIBRATING", "SYNCHRONIZING", "ENTERING ARENA"]
+  const words = ["TRAIN INSANE", "STAY FIT", "LIVE CRAZ", "ENTERING ARENA"]
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -106,7 +106,7 @@ export default function LoadingScreen({ onComplete }) {
       </div>
       
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 text-[10px] text-white/10 font-black uppercase tracking-[0.5em]">
-        Antigravity Performance Ecosystem v1.0
+        Fitcraz Performance Ecosystem v1.0
       </div>
     </motion.div>
   )

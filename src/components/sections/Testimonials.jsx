@@ -6,7 +6,7 @@ const testimonials = [
     name: "Marcus Thorne",
     role: "FORMER OLYMPIC SPRINTER",
     image: "https://i.pravatar.cc/150?img=11",
-    quote: "The Antigravity ecosystem provides a level of architectural precision I've only ever seen at the highest levels of professional sport. It is the gold standard.",
+    quote: "The Fitcraz ecosystem provides a level of architectural precision I've only ever seen at the highest levels of professional sport. It is the gold standard.",
     rating: 5
   },
   {
