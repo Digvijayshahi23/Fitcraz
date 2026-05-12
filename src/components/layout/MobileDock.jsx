@@ -27,7 +27,11 @@ export default function MobileDock() {
                 : 'w-12 h-12 text-white/40 hover:text-white'
             }`}
           >
-            <item.icon size={item.primary ? 28 : 20} className={item.primary ? 'fill-white' : ''} />
+            {item.primary ? (
+              <img src="/logo.png" alt="Home" className="w-10 h-10 object-contain" />
+            ) : (
+              <item.icon size={20} />
+            )}
             {!item.primary && (
               <span className="text-[7px] font-black uppercase tracking-widest mt-1">
                 {item.label}
