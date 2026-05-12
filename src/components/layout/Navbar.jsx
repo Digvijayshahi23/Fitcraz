@@ -40,7 +40,7 @@ export default function Navbar() {
               <Zap className="text-white w-5 h-5 fill-white" />
             </div>
             <h2 className="text-2xl font-display font-black tracking-tighter text-white uppercase italic">
-              ANTIGRAVITY<span className="text-white/20 not-italic">.</span>
+              FITCRAZ<span className="text-white/20 not-italic">.</span>
             </h2>
           </a>
 
@@ -104,7 +104,7 @@ export default function Navbar() {
                   <Zap className="text-white w-6 h-6 fill-white" />
                 </div>
                 <h2 className="text-2xl font-display font-black tracking-tighter text-white uppercase italic">
-                  ANTIGRAVITY<span className="text-white/20 not-italic">.</span>
+                  FITCRAZ<span className="text-white/20 not-italic">.</span>
                 </h2>
               </div>
               <button

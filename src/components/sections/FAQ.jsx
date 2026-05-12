@@ -4,7 +4,7 @@ import { Plus, Minus, HelpCircle } from 'lucide-react'
 
 const faqs = [
   {
-    question: "What makes Antigravity different from a standard high-end gym?",
+    question: "What makes Fitcraz different from a standard high-end gym?",
     answer: "We are an athletic ecosystem. Beyond high-end equipment, we integrate bio-telemetry, neural-recovery protocols, and architectural training environments designed to optimize human performance at a cellular level."
   },
   {

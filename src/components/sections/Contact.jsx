@@ -146,7 +146,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-[8px] uppercase font-bold text-white/20 tracking-widest mb-1">Transmission</p>
-                  <p className="text-sm font-bold text-white">missions@antigravity.fit</p>
+                  <p className="text-sm font-bold text-white">missions@fitcraz.com</p>
                 </div>
               </div>
             </div>

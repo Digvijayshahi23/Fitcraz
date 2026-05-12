@@ -13,7 +13,7 @@ export default function Footer() {
                 <Zap className="text-white w-6 h-6 fill-white" />
               </div>
               <h2 className="text-3xl font-display font-black tracking-tighter text-white uppercase italic">
-                ANTIGRAVITY<span className="text-white/20 not-italic">.</span>
+                FITCRAZ<span className="text-white/20 not-italic">.</span>
               </h2>
             </div>
             <p className="text-brand-gray text-lg font-medium leading-relaxed mb-12 max-w-sm">
@@ -91,7 +91,7 @@ export default function Footer() {
 
         <div className="mt-32 pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12">
           <p className="text-[10px] text-white/10 font-black uppercase tracking-[0.5em]">
-            © 2026 ANTIGRAVITY ELITE PERFORMANCE. ALL RIGHTS RESERVED.
+            © 2026 FITCRAZ ELITE PERFORMANCE. ALL RIGHTS RESERVED.
           </p>
           <div className="flex gap-10 text-[10px] text-white/10 font-black uppercase tracking-widest">
             <a href="#" className="hover:text-brand-red transition-colors">Term of Access</a>
