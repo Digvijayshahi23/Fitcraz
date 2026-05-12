@@ -106,7 +106,7 @@ export default function About() {
               viewport={{ once: true }}
               className="text-xl md:text-2xl text-brand-gray mb-20 leading-relaxed font-medium opacity-80"
             >
-              Antigravity is the world's most advanced athletic ecosystem. We integrate cinematic design with world-class bio-technology to push the boundaries of human performance.
+              Fitcraz is the world's most advanced athletic ecosystem. We integrate cinematic design with world-class bio-technology to push the boundaries of human performance.
             </motion.p>
 
             {/* Counters */}

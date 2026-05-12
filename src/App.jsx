@@ -34,7 +34,7 @@ function HomePage({ loading, setLoading }) {
   return (
     <>
       <Helmet>
-        <title>ANTIGRAVITY ELITE | Elite Performance Ecosystem</title>
+        <title>FITCRAZ | Elite Performance Ecosystem</title>
         <meta name="description" content="Experience the next generation of high-performance athletic training. Cinematic environments, elite coaching, and architectural precision." />
       </Helmet>
 

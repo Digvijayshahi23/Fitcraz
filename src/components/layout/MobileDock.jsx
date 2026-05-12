@@ -28,7 +28,7 @@ export default function MobileDock() {
             }`}
           >
             {item.primary ? (
-              <Zap size={28} className="fill-white" />
+              <img src="/logo.png" alt="Home" className="w-10 h-10 object-contain" />
             ) : (
               <item.icon size={20} />
             )}

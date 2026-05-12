@@ -9,11 +9,11 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="md:col-span-4">
             <div className="flex items-center gap-3 mb-10">
-              <div className="w-12 h-12 rounded-xl bg-brand-red flex items-center justify-center shadow-2xl">
-                <Shield size={24} className="text-white fill-white" />
+              <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center shadow-2xl">
+                <img src="/logo.png" alt="Fitcraz" className="w-full h-full object-contain" />
               </div>
               <h2 className="text-3xl font-display font-black tracking-tighter text-white uppercase italic">
-                ANTIGRAVITY ELITE<span className="text-white/20 not-italic">.</span>
+                FITCRAZ<span className="text-white/20 not-italic">.</span>
               </h2>
             </div>
             <p className="text-brand-gray text-lg font-medium leading-relaxed mb-12 max-w-sm">
@@ -91,7 +91,7 @@ export default function Footer() {
 
         <div className="mt-32 pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12">
           <p className="text-[10px] text-white/10 font-black uppercase tracking-[0.5em]">
-            © 2026 ANTIGRAVITY ELITE ELITE PERFORMANCE. ALL RIGHTS RESERVED.
+            © 2026 FITCRAZ ELITE PERFORMANCE. ALL RIGHTS RESERVED.
           </p>
           <div className="flex gap-10 text-[10px] text-white/10 font-black uppercase tracking-widest">
             <a href="#" className="hover:text-brand-red transition-colors">Term of Access</a>
