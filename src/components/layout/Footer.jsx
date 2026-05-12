@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Shield, ArrowUpRight, Instagram, Twitter, Linkedin } from 'lucide-react'
+import { Shield, ArrowUpRight, Globe, Zap, Target } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -20,7 +20,7 @@ export default function Footer() {
               Engineered for those who demand more than survival. Forged in the pursuit of physiological dominance.
             </p>
             <div className="flex gap-12">
-              {[Instagram, Twitter, Linkedin].map((Icon, i) => (
+              {[Globe, Zap, Target].map((Icon, i) => (
                 <motion.a
                   key={i}
                   href="#"

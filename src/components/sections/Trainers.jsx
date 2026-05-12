@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Instagram, Twitter, Linkedin, ArrowUpRight } from 'lucide-react'
+import { Globe, Zap, Shield, ArrowUpRight } from 'lucide-react'
 
 const architects = [
   {
@@ -86,8 +86,8 @@ export default function Trainers() {
                       {architect.specialty}
                     </p>
                     <div className="flex gap-4">
-                      <Instagram size={18} className="text-white/40 hover:text-white transition-colors" />
-                      <Linkedin size={18} className="text-white/40 hover:text-white transition-colors" />
+                      <Globe size={18} className="text-white/40 hover:text-white transition-colors" />
+                      <Shield size={18} className="text-white/40 hover:text-white transition-colors" />
                     </div>
                   </div>
                 </div>
