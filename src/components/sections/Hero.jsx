@@ -3,14 +3,19 @@ import { motion } from 'framer-motion'
 export default function Hero() {
   return (
     <section className="relative h-screen w-full overflow-hidden flex flex-col justify-center items-center bg-black">
-      {/* Background Media - Cinematic Gym Atmosphere */}
+      {/* Background Media - Cinematic Gym Video */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80" 
-          alt="Gym Background" 
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
           className="w-full h-full object-cover opacity-70"
-        />
-        <div className="absolute inset-0 bg-black/30" />
+        >
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-man-working-out-with-heavy-chains-in-the-gym-22874-large.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Main Content - Centered */}
