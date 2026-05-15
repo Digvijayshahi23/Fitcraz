@@ -47,22 +47,49 @@ export default function Testimonials() {
             </div>
           </div>
 
-          <div className="relative max-w-md hidden md:block">
+        </div>
+
+        {/* Improved CTA Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-24 relative overflow-hidden rounded-[2rem] border border-white/5 bg-[#050505] group"
+        >
+          <div className="absolute inset-0 z-0">
             <img 
-              src="https://images.unsplash.com/photo-1548690312-e3b507d17a4d?auto=format&fit=crop&q=80" 
+              src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80" 
               alt="Community" 
-              className="rounded-3xl grayscale opacity-60"
+              className="w-full h-full object-cover opacity-20 grayscale group-hover:scale-110 transition-transform duration-1000"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-            <div className="absolute bottom-12 left-12 right-12 text-center">
-              <h3 className="text-2xl font-display font-black text-white uppercase italic">READY TO BECOME YOUR BEST?</h3>
-              <p className="text-brand-gray text-xs mt-2 mb-6">Your journey starts today. Join the elite and unlock your full potential.</p>
-              <div className="flex flex-col gap-4">
-                <button className="px-8 py-4 bg-brand-red text-white rounded-lg text-[10px] font-black uppercase tracking-widest">JOIN THE ELITE</button>
-                <button className="px-8 py-4 border border-white/10 text-white rounded-lg text-[10px] font-black uppercase tracking-widest">BOOK A TOUR</button>
-              </div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,black_100%)]" />
+          </div>
+
+          <div className="relative z-10 px-8 py-20 md:p-24 flex flex-col md:flex-row items-center justify-between gap-12">
+            <div className="max-w-2xl text-center md:text-left">
+              <h3 className="text-4xl md:text-7xl font-display font-black text-white leading-[0.9] uppercase italic tracking-tighter mb-6">
+                READY TO <br />
+                <span className="text-brand-red text-shadow-premium">BECOME</span> YOUR BEST?
+              </h3>
+              <p className="text-brand-gray text-sm md:text-lg max-w-md opacity-80">
+                The elite ecosystem is waiting. Join 12,000+ athletes who have already transformed their lives.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-6 w-full md:w-auto">
+              <button className="px-12 py-6 bg-brand-red text-white rounded-full font-black text-xs uppercase tracking-widest shadow-[0_20px_50px_rgba(255,59,48,0.3)] hover:scale-105 transition-all">
+                JOIN THE ELITE
+              </button>
+              <button className="px-12 py-6 border border-white/10 text-white rounded-full font-black text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all backdrop-blur-xl">
+                BOOK A TOUR
+              </button>
             </div>
           </div>
+
+          {/* Decorative Elements */}
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-red/5 blur-[120px] rounded-full translate-x-1/2" />
+        </motion.div>
         </div>
       </div>
     </section>
