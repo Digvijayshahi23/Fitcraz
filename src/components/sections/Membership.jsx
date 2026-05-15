@@ -5,24 +5,24 @@ import { Check } from 'lucide-react'
 const plans = [
   {
     name: "STARTER",
-    price: "39",
+    price: "2999",
     features: ["Gym Access", "Basic Training Plan", "1 Group Class / Week"]
   },
   {
     name: "PERFORMANCE",
-    price: "59",
+    price: "4999",
     features: ["Gym Access", "Advanced Training Plan", "3 Group Classes / Week", "Progress Tracking"],
     popular: true
   },
   {
     name: "ELITE",
-    price: "89",
+    price: "7999",
     description: "For dedicated individuals.",
     features: ["Gym Access", "Elite Training Plan", "Unlimited Classes", "Progress Tracking", "Nutrition Guidance"]
   },
   {
     name: "ATHLETE PRO",
-    price: "129",
+    price: "9999",
     description: "For those who want more.",
     features: ["Everything in Elite", "1-on-1 Coaching", "Priority Support", "Custom Meal Plan"]
   }
@@ -30,6 +30,58 @@ const plans = [
 
 export default function Membership() {
   const [isYearly, setIsYearly] = useState(false)
+  const [isProcessing, setIsProcessing] = useState(false)
+
+  const loadRazorpay = () => {
+    return new Promise((resolve) => {
+      const script = document.createElement('script')
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js'
+      script.onload = () => resolve(true)
+      script.onerror = () => resolve(false)
+      document.body.appendChild(script)
+    })
+  }
+
+  const handlePayment = async (plan) => {
+    setIsProcessing(true)
+    const res = await loadRazorpay()
+
+    if (!res) {
+      alert('Razorpay SDK failed to load. Are you online?')
+      setIsProcessing(false)
+      return
+    }
+
+    const price = isYearly ? Math.floor(plan.price * 0.8 * 12) : plan.price
+    
+    const options = {
+      key: 'rzp_test_placeholder', // Enter your Key ID here
+      amount: price * 100, // Amount is in currency subunits. 299900 = INR 2999
+      currency: 'INR',
+      name: 'FITCRAZ ELITE',
+      description: `Purchase ${plan.name} ${isYearly ? 'Yearly' : 'Monthly'} Membership`,
+      image: '/logo.png',
+      handler: function (response) {
+        alert('Payment Successful! ID: ' + response.razorpay_payment_id)
+        // Here you would typically send the response to your server for verification
+      },
+      prefill: {
+        name: 'Elite Athlete',
+        email: 'athlete@fitcraz.com',
+        contact: '9999999999'
+      },
+      notes: {
+        address: 'Fitcraz Arena, India'
+      },
+      theme: {
+        color: '#FF3B30'
+      }
+    }
+
+    const paymentObject = new window.Razorpay(options)
+    paymentObject.open()
+    setIsProcessing(false)
+  }
 
   return (
     <section id="membership" className="py-24 bg-black border-b border-white/5">
@@ -80,7 +132,7 @@ export default function Membership() {
               <div className="mb-8">
                 <h3 className="text-xs font-black text-brand-gray uppercase tracking-widest mb-4">{plan.name}</h3>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-display font-black text-white">${isYearly ? Math.floor(plan.price * 0.8 * 12) : plan.price}</span>
+                  <span className="text-4xl font-display font-black text-white">₹{isYearly ? Math.floor(plan.price * 0.8 * 12).toLocaleString() : parseInt(plan.price).toLocaleString()}</span>
                   <span className="text-brand-gray text-[10px] font-black uppercase tracking-widest">/{isYearly ? 'YR' : 'MO'}</span>
                 </div>
                 {plan.description && (
@@ -97,8 +149,12 @@ export default function Membership() {
                 ))}
               </div>
 
-              <button className={`w-full py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${plan.popular ? 'bg-brand-red text-white' : 'border border-white/10 text-white hover:bg-white hover:text-black'}`}>
-                JOIN NOW
+              <button 
+                disabled={isProcessing}
+                onClick={() => handlePayment(plan)}
+                className={`w-full py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${isProcessing ? 'opacity-50 cursor-not-allowed' : ''} ${plan.popular ? 'bg-brand-red text-white' : 'border border-white/10 text-white hover:bg-white hover:text-black'}`}
+              >
+                {isProcessing ? 'PROCESSING...' : 'JOIN NOW'}
               </button>
             </motion.div>
           ))}
