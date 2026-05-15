@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-red: #FF3B30;
+  --color-brand-orange: #FF6A00;
   --color-brand-black: #050505;
-  --color-brand-void: #000000;
-  --color-brand-gray: #A1A1AA;
-  --color-brand-surface: #0A0A0A;
+  --color-brand-graphite: #111111;
+  --color-brand-silver: #BFC3C9;
+  --color-brand-white: #F5F5F5;
 
   --font-display: "Outfit", "Inter", sans-serif;
   --font-body: "Inter", sans-serif;
@@ -49,8 +49,8 @@ body {
     @apply bg-black/80 backdrop-blur-3xl border border-white/5;
   }
 
-  .neon-glow-red {
-    box-shadow: 0 0 50px rgba(255, 59, 48, 0.2);
+  .neon-glow-orange {
+    box-shadow: 0 0 50px rgba(255, 106, 0, 0.2);
   }
 
   .text-shadow-premium {
@@ -70,8 +70,8 @@ body {
     color: transparent;
   }
 
-  .text-outline-red {
-    -webkit-text-stroke: 1px #FF3B30;
+  .text-outline-orange {
+    -webkit-text-stroke: 1px #FF6A00;
     color: transparent;
   }
 }
@@ -99,7 +99,7 @@ html.lenis {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #FF3B30;
+  background: #FF6A00;
 }
 
 /* Typography Refinements */

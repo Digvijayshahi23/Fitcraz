@@ -8,10 +8,10 @@ export default function Testimonials() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-12">
           <div className="max-w-xl">
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-[10px] uppercase tracking-[0.4em] font-black text-brand-red">REAL FEEDBACK. REAL RESULTS.</span>
+              <span className="text-[10px] uppercase tracking-[0.4em] font-black text-brand-orange">ATHLETE INTELLIGENCE.</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-display font-black text-white uppercase italic tracking-tighter mb-8">
-              WHAT OUR <br />MEMBERS SAY
+            <h2 className="text-4xl md:text-6xl font-display font-light text-brand-white uppercase italic tracking-tighter mb-8 leading-none">
+              BEYOND <br />PERFORMANCE
             </h2>
             
             <div className="bg-[#0A0A0A] border border-white/5 p-12 rounded-3xl relative">
@@ -30,7 +30,7 @@ export default function Testimonials() {
                   </div>
                 </div>
                 
-                <div className="flex gap-1 text-brand-red">
+                <div className="flex gap-1 text-brand-orange">
                   {[1,2,3,4,5].map(i => <Star key={i} size={12} fill="currentColor" />)}
                 </div>
               </div>
@@ -66,29 +66,29 @@ export default function Testimonials() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,black_100%)]" />
           </div>
 
-          <div className="relative z-10 px-8 py-20 md:p-24 flex flex-col md:flex-row items-center justify-between gap-12">
-            <div className="max-w-2xl text-center md:text-left">
-              <h3 className="text-4xl md:text-7xl font-display font-black text-white leading-[0.9] uppercase italic tracking-tighter mb-6">
-                READY TO <br />
-                <span className="text-brand-red text-shadow-premium">BECOME</span> YOUR BEST?
+          <div className="relative z-10 px-8 py-20 md:p-24 flex flex-col md:flex-row items-center justify-between gap-12 text-center md:text-left">
+            <div className="max-w-2xl">
+              <h3 className="text-4xl md:text-7xl font-display font-light text-brand-white leading-[0.9] uppercase italic tracking-tighter mb-6">
+                BEYOND <br />
+                <span className="text-brand-orange font-black not-italic tracking-tight">LIMITS.</span>
               </h3>
-              <p className="text-brand-gray text-sm md:text-lg max-w-md opacity-80">
-                The elite ecosystem is waiting. Join 12,000+ athletes who have already transformed their lives.
+              <p className="text-brand-silver/50 text-sm md:text-lg max-w-md">
+                The elite ecosystem is waiting. Join the global movement of high-performance athletes.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 w-full md:w-auto">
-              <button className="px-12 py-6 bg-brand-red text-white rounded-full font-black text-xs uppercase tracking-widest shadow-[0_20px_50px_rgba(255,59,48,0.3)] hover:scale-105 transition-all">
-                JOIN THE ELITE
+              <button className="px-12 py-6 bg-brand-orange text-brand-black rounded-sm font-black text-[10px] uppercase tracking-widest shadow-[0_20px_50px_rgba(255,106,0,0.2)] hover:scale-105 transition-all">
+                JOIN ANTIGRAVITY
               </button>
-              <button className="px-12 py-6 border border-white/10 text-white rounded-full font-black text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all backdrop-blur-xl">
-                BOOK A TOUR
+              <button className="px-12 py-6 border border-white/10 text-brand-white rounded-sm font-black text-[10px] uppercase tracking-widest hover:bg-brand-white hover:text-brand-black transition-all backdrop-blur-xl">
+                BOOK EXPERIENCE
               </button>
             </div>
           </div>
 
           {/* Decorative Elements */}
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-red/5 blur-[120px] rounded-full translate-x-1/2" />
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-orange/5 blur-[120px] rounded-full translate-x-1/2" />
         </motion.div>
       </div>
     </section>

@@ -58,7 +58,7 @@ export default function Membership() {
       key: 'rzp_test_placeholder', // Enter your Key ID here
       amount: price * 100, // Amount is in currency subunits. 299900 = INR 2999
       currency: 'INR',
-      name: 'FITCRAZ ELITE',
+      name: 'ANTIGRAVITY ELITE',
       description: `Purchase ${plan.name} ${isYearly ? 'Yearly' : 'Monthly'} Membership`,
       image: '/logo.png',
       handler: function (response) {
@@ -67,14 +67,14 @@ export default function Membership() {
       },
       prefill: {
         name: 'Elite Athlete',
-        email: 'athlete@fitcraz.com',
+        email: 'athlete@antigravity.com',
         contact: '9999999999'
       },
       notes: {
-        address: 'Fitcraz Arena, India'
+        address: 'Antigravity Arena, India'
       },
       theme: {
-        color: '#FF3B30'
+        color: '#FF6A00'
       }
     }
 
@@ -88,27 +88,27 @@ export default function Membership() {
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex flex-col items-center mb-16 text-center">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-[10px] uppercase tracking-[0.4em] font-black text-brand-red">JOIN THE MOVEMENT</span>
+            <span className="text-[10px] uppercase tracking-[0.4em] font-black text-brand-orange">ELEVATE YOUR STATUS</span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-display font-black text-white uppercase italic tracking-tighter">
-            CHOOSE YOUR MEMBERSHIP
+          <h2 className="text-4xl md:text-6xl font-display font-light text-white uppercase italic tracking-tighter">
+            MEMBERSHIP TIERS
           </h2>
-          <p className="text-brand-gray mt-4 max-w-lg">
-            Flexible plans. Elite results. You vs. Yesterday.
+          <p className="text-brand-silver/60 mt-4 max-w-lg">
+            Architected for peak physiological dominance.
           </p>
 
-          <div className="mt-12 flex items-center gap-4 bg-[#0A0A0A] p-1.5 rounded-xl border border-white/5">
+          <div className="mt-12 flex items-center gap-4 bg-brand-graphite p-1.5 rounded-xl border border-white/5">
             <button 
               onClick={() => setIsYearly(false)}
-              className={`px-6 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${!isYearly ? 'bg-white text-black' : 'text-white/40'}`}
+              className={`px-6 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${!isYearly ? 'bg-brand-white text-brand-black' : 'text-brand-silver/40'}`}
             >
               MONTHLY
             </button>
             <button 
               onClick={() => setIsYearly(true)}
-              className={`px-6 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${isYearly ? 'bg-white text-black' : 'text-white/40'}`}
+              className={`px-6 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${isYearly ? 'bg-brand-white text-brand-black' : 'text-brand-silver/40'}`}
             >
-              YEARLY <span className="text-brand-red ml-1">(SAVE 20%)</span>
+              YEARLY <span className="text-brand-orange ml-1">(SAVE 20%)</span>
             </button>
           </div>
         </div>
@@ -121,29 +121,29 @@ export default function Membership() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className={`relative flex flex-col bg-[#0A0A0A] border rounded-2xl p-8 hover:border-brand-red/50 transition-all ${plan.popular ? 'border-brand-red neon-glow-red' : 'border-white/5'}`}
+              className={`relative flex flex-col bg-brand-graphite border rounded-2xl p-8 hover:border-brand-orange/50 transition-all ${plan.popular ? 'border-brand-orange neon-glow-orange' : 'border-white/5'}`}
             >
               {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-red text-white text-[8px] font-black px-4 py-1 rounded-full uppercase tracking-widest">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-orange text-brand-black text-[8px] font-black px-4 py-1 rounded-full uppercase tracking-widest">
                   POPULAR
                 </div>
               )}
               
               <div className="mb-8">
-                <h3 className="text-xs font-black text-brand-gray uppercase tracking-widest mb-4">{plan.name}</h3>
+                <h3 className="text-xs font-light text-brand-silver/40 uppercase tracking-widest mb-4">{plan.name}</h3>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-display font-black text-white">₹{isYearly ? Math.floor(plan.price * 0.8 * 12).toLocaleString() : parseInt(plan.price).toLocaleString()}</span>
-                  <span className="text-brand-gray text-[10px] font-black uppercase tracking-widest">/{isYearly ? 'YR' : 'MO'}</span>
+                  <span className="text-4xl font-display font-black text-brand-white">₹{isYearly ? Math.floor(plan.price * 0.8 * 12).toLocaleString() : parseInt(plan.price).toLocaleString()}</span>
+                  <span className="text-brand-silver/40 text-[10px] font-black uppercase tracking-widest">/{isYearly ? 'YR' : 'MO'}</span>
                 </div>
                 {plan.description && (
-                  <p className="text-brand-gray text-[10px] mt-2 italic">{plan.description}</p>
+                  <p className="text-brand-silver/40 text-[10px] mt-2 italic">{plan.description}</p>
                 )}
               </div>
 
               <div className="flex-grow space-y-4 mb-12">
                 {plan.features.map(feature => (
-                  <div key={feature} className="flex items-center gap-3 text-white/60">
-                    <Check size={14} className="text-brand-red shrink-0" />
+                  <div key={feature} className="flex items-center gap-3 text-brand-silver/60">
+                    <Check size={14} className="text-brand-orange shrink-0" />
                     <span className="text-[11px] font-medium tracking-tight">{feature}</span>
                   </div>
                 ))}
@@ -152,7 +152,7 @@ export default function Membership() {
               <button 
                 disabled={isProcessing}
                 onClick={() => handlePayment(plan)}
-                className={`w-full py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${isProcessing ? 'opacity-50 cursor-not-allowed' : ''} ${plan.popular ? 'bg-brand-red text-white' : 'border border-white/10 text-white hover:bg-white hover:text-black'}`}
+                className={`w-full py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${isProcessing ? 'opacity-50 cursor-not-allowed' : ''} ${plan.popular ? 'bg-brand-orange text-brand-black' : 'border border-white/10 text-brand-white hover:bg-brand-white hover:text-brand-black'}`}
               >
                 {isProcessing ? 'PROCESSING...' : 'JOIN NOW'}
               </button>

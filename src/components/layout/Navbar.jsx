@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom'
 const navLinks = [
   { name: 'LOCATIONS', href: '#arena' },
   { name: 'CLASSES', href: '#programs' },
-  { name: 'ARENA+', href: '#reels' },
+  { name: 'SENSEI+', href: '#reels' },
   { name: 'TRAINING', href: '#trainers' },
-  { name: 'ABOUT', href: '#testimonials' },
+  { name: 'PHILOSOPHY', href: '#testimonials' },
 ]
 
 export default function Navbar() {
@@ -23,61 +23,62 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-[100] flex flex-col">
-      {/* Top Black Bar */}
-      <div className="bg-black py-2 px-6 border-b border-white/10 hidden md:block">
-        <div className="container mx-auto max-w-7xl flex justify-between items-center text-[10px] font-black uppercase tracking-[0.2em] text-white">
+      {/* Top Bar - Minimalist */}
+      <div className="bg-brand-black/40 backdrop-blur-sm py-2 px-6 border-b border-white/5 hidden md:block">
+        <div className="container mx-auto max-w-7xl flex justify-between items-center text-[9px] font-medium uppercase tracking-[0.3em] text-brand-silver/60">
           <div className="flex gap-6">
-            <span className="opacity-60 hover:opacity-100 cursor-pointer">#NOJUDGMENTS</span>
+            <span className="hover:text-brand-white transition-colors cursor-pointer">NEVER SETTLE</span>
+            <span className="hover:text-brand-white transition-colors cursor-pointer">BEYOND PERFORMANCE</span>
           </div>
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 opacity-60 hover:opacity-100 cursor-pointer">
-              <Globe size={12} />
-              <span>EN</span>
+            <div className="flex items-center gap-2 hover:text-brand-white transition-colors cursor-pointer">
+              <Globe size={10} />
+              <span>GLOBAL ACCESS</span>
             </div>
-            <Link to="/login" className="flex items-center gap-2 opacity-60 hover:opacity-100">
-              <User size={12} />
-              <span>LOGIN</span>
+            <Link to="/login" className="flex items-center gap-2 hover:text-brand-white transition-colors">
+              <User size={10} />
+              <span>ATHLETE LOGIN</span>
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Main Navbar */}
-      <div className={`transition-all duration-500 ${scrolled ? 'bg-black/90 backdrop-blur-md py-4' : 'bg-transparent py-6'}`}>
+      {/* Main Navbar - Glassmorphism */}
+      <div className={`transition-all duration-700 ${scrolled ? 'bg-brand-black/60 backdrop-blur-xl py-4 border-b border-white/5' : 'bg-transparent py-8'}`}>
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <a href="#" className="flex items-center gap-2 group shrink-0">
-              <div className="w-10 h-10 bg-[#FF0000] rounded flex items-center justify-center font-display font-black text-white italic transition-transform group-hover:scale-110">F</div>
-              <span className="text-2xl font-display font-black text-white italic tracking-tighter">FITCRAZ</span>
+            {/* Logo - Antigravity */}
+            <a href="#" className="flex items-center gap-3 group shrink-0">
+              <div className="w-9 h-9 bg-brand-orange rounded-sm flex items-center justify-center font-display font-black text-brand-black italic transition-transform group-hover:scale-105">A</div>
+              <span className="text-xl font-display font-light text-brand-white uppercase tracking-[0.4em] italic">ANTIGRAVITY</span>
             </a>
 
-            {/* Desktop Links - Centered */}
-            <div className="hidden lg:flex items-center gap-8 ml-12">
+            {/* Desktop Links - Centered & Thin */}
+            <div className="hidden lg:flex items-center gap-12 ml-12">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-[11px] font-black uppercase tracking-[0.15em] text-white/80 hover:text-white transition-all relative group"
+                  className="text-[10px] font-light uppercase tracking-[0.3em] text-brand-silver/50 hover:text-brand-white transition-all relative group"
                 >
                   {link.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#FF0000] transition-all group-hover:w-full" />
+                  <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-brand-orange transition-all group-hover:w-full" />
                 </a>
               ))}
             </div>
 
-            {/* Action Buttons - Right */}
-            <div className="hidden md:flex items-center gap-0 ml-auto h-12 overflow-hidden rounded-sm">
-              <button className="h-full px-8 bg-[#FF8C00] text-white text-[10px] font-black uppercase tracking-widest hover:bg-[#e67e00] transition-all">
-                FREE TRIAL
+            {/* Action Buttons - Premium */}
+            <div className="hidden md:flex items-center gap-4 ml-auto">
+              <button className="px-8 py-3 text-[9px] font-black uppercase tracking-[0.2em] text-brand-white hover:text-brand-orange transition-colors">
+                GIFT EXPERIENCE
               </button>
-              <button className="h-full px-8 bg-[#FF0000] text-white text-[10px] font-black uppercase tracking-widest hover:bg-[#cc0000] transition-all">
-                JOIN
+              <button className="px-8 py-3 bg-brand-orange text-brand-black text-[9px] font-black uppercase tracking-[0.2em] rounded-sm hover:bg-brand-white transition-all shadow-[0_0_30px_rgba(255,106,0,0.2)]">
+                JOIN ELITE
               </button>
             </div>
 
             {/* Mobile Toggle */}
-            <button onClick={() => setIsOpen(true)} className="lg:hidden text-white ml-4">
+            <button onClick={() => setIsOpen(true)} className="lg:hidden text-brand-white ml-4">
               <Menu size={24} />
             </button>
           </div>
@@ -88,38 +89,29 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            className="fixed inset-0 z-[110] bg-black p-8 flex flex-col"
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.1 }}
+            className="fixed inset-0 z-[110] bg-brand-black p-8 flex flex-col justify-center items-center text-center"
           >
-            <div className="flex justify-between items-center mb-16">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-[#FF0000] rounded flex items-center justify-center font-display font-black text-white italic">F</div>
-                <span className="text-2xl font-black italic">FITCRAZ</span>
-              </div>
-              <button onClick={() => setIsOpen(false)} className="text-white">
-                <X size={32} />
-              </button>
-            </div>
-            <div className="flex flex-col gap-8">
+            <button onClick={() => setIsOpen(false)} className="absolute top-8 right-8 text-brand-white">
+              <X size={40} strokeWidth={1} />
+            </button>
+            <div className="flex flex-col gap-10">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-4xl font-display font-black italic uppercase text-white hover:text-[#FF0000] transition-colors"
+                  className="text-4xl font-display font-light italic uppercase text-brand-white hover:text-brand-orange transition-colors tracking-[0.2em]"
                 >
                   {link.name}
                 </a>
               ))}
             </div>
-            <div className="mt-auto flex flex-col gap-4">
-              <button className="w-full py-6 bg-[#FF8C00] text-white rounded-full font-black uppercase tracking-widest text-xs">
-                FREE TRIAL
-              </button>
-              <button className="w-full py-6 bg-[#FF0000] text-white rounded-full font-black uppercase tracking-widest text-xs">
-                JOIN NOW
+            <div className="mt-20 flex flex-col gap-4 w-full max-w-xs">
+              <button className="w-full py-5 bg-brand-orange text-brand-black font-black uppercase tracking-widest text-[10px] rounded-sm">
+                JOIN THE MOVEMENT
               </button>
             </div>
           </motion.div>

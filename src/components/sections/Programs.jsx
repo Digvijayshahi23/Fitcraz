@@ -25,10 +25,10 @@ export default function Programs() {
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-[10px] uppercase tracking-[0.4em] font-black text-brand-red">BUILT FOR EVERY ATHLETE</span>
+            <span className="text-[10px] uppercase tracking-[0.4em] font-black text-brand-orange">BEYOND THE LIMITS</span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-display font-black text-white uppercase italic tracking-tighter">
-            TRAINING PROGRAMS
+          <h2 className="text-4xl md:text-6xl font-display font-light text-brand-white uppercase italic tracking-tighter">
+            ELITE PROTOCOLS
           </h2>
           <p className="text-brand-gray mt-4 max-w-lg">
             Programs engineered for results. Choose your path and unlock your potential.
@@ -43,7 +43,7 @@ export default function Programs() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="group relative flex flex-col bg-[#0A0A0A] border border-white/5 rounded-2xl overflow-hidden p-8 hover:border-brand-red/50 transition-all"
+              className="group relative flex flex-col bg-brand-graphite border border-white/5 rounded-2xl overflow-hidden p-8 hover:border-brand-orange/50 transition-all"
             >
               <div className="mb-8 aspect-square overflow-hidden rounded-xl">
                 <img 
@@ -60,7 +60,7 @@ export default function Programs() {
                 {program.description}
               </p>
 
-              <button className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-white/40 group-hover:text-brand-red transition-colors">
+              <button className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-brand-silver/40 group-hover:text-brand-orange transition-colors">
                 LEARN MORE <ArrowRight size={14} />
               </button>
             </motion.div>
