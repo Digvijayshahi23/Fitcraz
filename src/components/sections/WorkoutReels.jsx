@@ -1,128 +1,54 @@
 import { motion } from 'framer-motion'
-import { Play, Heart, MessageCircle, Share2, ArrowUpRight, Zap } from 'lucide-react'
+import { Play } from 'lucide-react'
 
 const reels = [
-  {
-    id: 1,
-    title: "Velocity Protocol",
-    athlete: "@dante_stone",
-    likes: "12.4k",
-    comments: "482",
-    video: "https://assets.mixkit.co/videos/preview/mixkit-man-training-with-battle-ropes-in-the-gym-23214-large.mp4"
-  },
-  {
-    id: 2,
-    title: "Elite Architects",
-    athlete: "@marcus_thorne",
-    likes: "18.1k",
-    comments: "921",
-    video: "https://assets.mixkit.co/videos/preview/mixkit-man-training-with-battle-ropes-in-the-gym-23214-large.mp4"
-  },
-  {
-    id: 3,
-    title: "Dawn Evolution",
-    athlete: "@elena_vance",
-    likes: "15.9k",
-    comments: "310",
-    video: "https://assets.mixkit.co/videos/preview/mixkit-man-training-with-battle-ropes-in-the-gym-23214-large.mp4"
-  }
+  { id: 1, image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80" },
+  { id: 2, image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80" },
+  { id: 3, image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80" },
+  { id: 4, image: "https://images.unsplash.com/photo-1548690312-e3b507d17a4d?auto=format&fit=crop&q=80" },
+  { id: 5, image: "https://images.unsplash.com/photo-1491752355423-9545ac42602b?auto=format&fit=crop&q=80" }
 ]
 
 export default function WorkoutReels() {
   return (
-    <section id="reels" className="py-64 bg-brand-black relative overflow-hidden">
-      <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-32 gap-12">
-          <div className="max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-4 mb-8"
-            >
-              <div className="w-12 h-[1px] bg-brand-red" />
-              <span className="text-[10px] uppercase tracking-[0.6em] font-black text-brand-red">The Feed</span>
-            </motion.div>
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-[clamp(3.5rem,10vw,8.5rem)] font-display font-black leading-[0.8] tracking-cinematic text-white uppercase italic"
-            >
-              Immersive <br />
-              <span className="text-brand-red not-italic">Execution.</span>
-            </motion.h2>
+    <section id="reels" className="py-24 bg-black border-b border-white/5 overflow-hidden">
+      <div className="container mx-auto px-6 max-w-7xl">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-[10px] uppercase tracking-[0.4em] font-black text-brand-red">TRAIN. RECORD. EVOLVE.</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-display font-black text-white uppercase italic tracking-tighter">
+              WORKOUT REELS
+            </h2>
+            <p className="text-brand-gray mt-4 max-w-lg">
+              Swipe through real workouts from our elite community.
+            </p>
           </div>
-          <button className="px-12 py-6 glass text-white rounded-full font-black text-[10px] uppercase tracking-[0.4em] hover:bg-white hover:text-brand-black transition-all duration-500 flex items-center gap-4">
-            OPEN THE HUB <ArrowUpRight size={16} />
+          <button className="px-8 py-4 border border-white/10 rounded-lg text-[10px] font-black uppercase tracking-widest text-white hover:bg-white hover:text-black transition-all">
+            VIEW ALL REELS
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="flex gap-6 overflow-x-auto no-scrollbar pb-8 -mx-6 px-6">
           {reels.map((reel, i) => (
             <motion.div
               key={reel.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1, duration: 1.2 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="group relative aspect-[9/16] rounded-[4rem] overflow-hidden bg-brand-void border border-white/5"
+              className="relative min-w-[280px] md:min-w-[320px] aspect-[9/16] rounded-3xl overflow-hidden group cursor-pointer"
             >
-              {/* Video Base */}
-              <video
-                src={reel.video}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-[2s]"
+              <img 
+                src={reel.image} 
+                alt="Reel" 
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
               />
-
-              {/* Interaction Overlays */}
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-void/90 via-transparent to-transparent z-10" />
-              
-              {/* Top Meta */}
-              <div className="absolute top-12 left-12 right-12 z-20 flex justify-between items-center">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full border-2 border-brand-red/50 overflow-hidden p-0.5">
-                    <div className="w-full h-full rounded-full bg-brand-surface flex items-center justify-center">
-                      <Zap size={14} className="text-brand-red fill-brand-red" />
-                    </div>
-                  </div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-white">{reel.athlete}</span>
-                </div>
-                <div className="px-4 py-2 glass rounded-full border border-white/10 text-[8px] font-black uppercase tracking-widest text-white/40">
-                  LIVE NOW
-                </div>
-              </div>
-
-              {/* Center Play Icon */}
-              <div className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-90 group-hover:scale-100 transition-transform">
-                <div className="w-24 h-24 rounded-full glass border border-white/20 flex items-center justify-center text-white backdrop-blur-3xl shadow-2xl">
-                  <Play size={40} className="fill-white ml-2" />
-                </div>
-              </div>
-
-              {/* Bottom Content */}
-              <div className="absolute bottom-12 left-12 right-12 z-20">
-                <h3 className="text-3xl font-display font-black text-white italic uppercase tracking-cinematic mb-8">
-                  {reel.title}
-                </h3>
-                
-                <div className="flex items-center justify-between pt-8 border-t border-white/10">
-                  <div className="flex gap-8">
-                    <div className="flex items-center gap-3 text-white/40 group-hover:text-white transition-colors">
-                      <Heart size={20} />
-                      <span className="text-[10px] font-black">{reel.likes}</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-white/40">
-                      <MessageCircle size={20} />
-                      <span className="text-[10px] font-black">{reel.comments}</span>
-                    </div>
-                  </div>
-                  <button className="text-white/40 hover:text-white transition-colors">
-                    <Share2 size={20} />
-                  </button>
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full glass border border-white/20 flex items-center justify-center text-white scale-90 group-hover:scale-100 transition-transform">
+                  <Play size={24} fill="currentColor" />
                 </div>
               </div>
             </motion.div>

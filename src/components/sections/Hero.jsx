@@ -1,118 +1,100 @@
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
-import { useRef, useEffect, useState } from 'react'
-import { Play, Zap, Target, Trophy, ArrowRight, Shield } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 export default function Hero() {
-  const containerRef = useRef(null)
-  const { scrollY } = useScroll()
-
-  const y = useTransform(scrollY, [0, 500], [0, 250])
-  const opacity = useTransform(scrollY, [0, 400], [1, 0])
-  const scale = useTransform(scrollY, [0, 500], [1, 1.2])
-
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePos({
-        x: (e.clientX / window.innerWidth - 0.5) * 20,
-        y: (e.clientY / window.innerHeight - 0.5) * 20
-      })
-    }
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
-
-  const springX = useSpring(mousePos.x, { stiffness: 100, damping: 30 })
-  const springY = useSpring(mousePos.y, { stiffness: 100, damping: 30 })
-
   return (
-    <section ref={containerRef} className="relative h-[100dvh] w-full overflow-hidden flex items-center justify-center bg-brand-black">
-      {/* Cinematic Media Base Layer */}
-      <motion.div style={{ scale, y }} className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover grayscale opacity-30 contrast-125"
-        >
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-man-training-with-battle-ropes-in-the-gym-23214-large.mp4" type="video/mp4" />
-        </video>
+    <section className="relative h-screen w-full overflow-hidden flex items-center bg-black">
+      {/* Background Image - Muscular man back view as in the image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80" 
+          alt="Athlete" 
+          className="w-full h-full object-cover opacity-60 grayscale contrast-125"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+      </div>
 
-        {/* Dramatic Lighting & Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-void via-brand-void/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-void/40 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(255,59,48,0.05)_0%,transparent_60%)]" />
-      </motion.div>
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+        <div className="max-w-4xl">
+          {/* Main Headline */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col gap-0 mb-8"
+          >
+            <h1 className="text-[clamp(4rem,10vw,8rem)] font-display font-black leading-[0.85] tracking-tighter uppercase italic text-white">
+              FORGED
+            </h1>
+            <h1 className="text-[clamp(4rem,10vw,8rem)] font-display font-black leading-[0.85] tracking-tighter uppercase italic text-outline">
+              THROUGH
+            </h1>
+            <h1 className="text-[clamp(4rem,10vw,8rem)] font-display font-black leading-[0.85] tracking-tighter uppercase italic text-brand-red">
+              PERFORMANCE.
+            </h1>
+          </motion.div>
 
-      {/* Dynamic Depth Layer */}
-      <motion.div
-        style={{ x: springX, y: springY }}
-        className="absolute inset-0 pointer-events-none z-10"
-      >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vh] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.02)_0%,transparent_70%)]" />
-      </motion.div>
-
-      {/* Main Content: Editorial Typography */}
-      <div className="relative z-20 container mx-auto px-6 flex flex-col items-center">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-          className="flex flex-col items-center max-w-7xl w-full"
-        >
-          {/* Staggered Heading System */}
-          <div className="overflow-hidden mb-12 md:mb-16">
-            <motion.h1
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[clamp(3.5rem,18vw,12rem)] font-display font-black leading-[0.75] tracking-cinematic text-white uppercase italic text-center text-shadow-premium"
-            >
-              Forged <br />
-              <span className="text-brand-red not-italic inline-block transform -skew-x-6">Through</span> <br />
-              Performance.
-            </motion.h1>
-          </div>
-
-          {/* Luxury Subline & CTA Ensemble */}
+          {/* Subheading & Description */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="flex flex-col items-center gap-12"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-12"
           >
-            <p className="text-brand-gray text-xl md:text-3xl font-medium max-w-2xl leading-[1.1] text-center tracking-tight opacity-80">
-              The world's most advanced athletic ecosystem. <br className="hidden md:block" />
-              Engineered for those who refuse to stay static.
+            <h2 className="text-sm md:text-xl font-black tracking-[0.4em] text-white uppercase mb-6">
+              DISCIPLINE. STRENGTH. EVOLUTION.
+            </h2>
+            <p className="text-brand-gray text-base md:text-lg max-w-lg leading-relaxed opacity-80">
+              FITCRAZ ELITE is where ambition meets execution. Train with purpose. Transform with intensity. Become your best.
             </p>
-
-            <div className="flex flex-wrap justify-center gap-8 mt-4">
-              <button className="px-16 py-8 bg-brand-red text-white rounded-full font-black text-xs uppercase tracking-[0.5em] shadow-[0_25px_60px_rgba(255,59,48,0.4)] hover:scale-105 hover:neon-glow-red transition-all duration-500 group overflow-hidden relative">
-                <span className="relative z-10 flex items-center gap-4">
-                  JOIN THE ELITE
-                  <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
-                </span>
-                <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 mix-blend-difference" />
-              </button>
-              
-              <button className="px-16 py-8 glass text-white rounded-full font-black text-xs uppercase tracking-[0.5em] border border-white/10 hover:bg-white hover:text-brand-black transition-all duration-500 flex items-center gap-4 group">
-                EXPLORE PROGRAMS
-              </button>
-            </div>
           </motion.div>
-        </motion.div>
+
+          {/* Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-wrap gap-6 mb-24"
+          >
+            <button className="px-10 py-5 bg-brand-red text-white rounded-full font-black text-xs uppercase tracking-widest shadow-[0_20px_50px_rgba(255,59,48,0.3)] hover:scale-105 transition-transform">
+              JOIN THE ELITE
+            </button>
+            <button className="px-10 py-5 border border-white/20 text-white rounded-full font-black text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all backdrop-blur-md">
+              EXPLORE PROGRAMS
+            </button>
+          </motion.div>
+        </div>
       </div>
 
-      {/* Subtle Scroll Motif */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-6 opacity-40">
-        <span className="text-[9px] text-white uppercase tracking-[0.6em] font-black">SCROLL TO EVOLVE</span>
-        <motion.div
-          animate={{ height: [40, 80, 40] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="w-[1px] bg-gradient-to-b from-brand-red to-transparent"
-        />
+      {/* Stats Bar Pinned to Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 pb-12">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-12 border-t border-white/10 pt-12"
+          >
+            {[
+              { label: 'ELITE MEMBERS', value: '12K+' },
+              { label: 'EXPERT TRAINERS', value: '50+' },
+              { label: 'PROGRAMS', value: '20+' },
+              { label: 'TRANSFORMATION RATE', value: '98%' },
+            ].map((stat) => (
+              <div key={stat.label} className="flex flex-col">
+                <span className="text-4xl md:text-5xl font-display font-black text-white mb-2">{stat.value}</span>
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40">{stat.label}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Side Scroll Dots (Visual only) */}
+      <div className="absolute right-10 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-4 z-20">
+        {[1, 2, 3, 4].map((i) => (
+          <div key={i} className={`w-1.5 h-1.5 rounded-full border border-white/40 transition-all ${i === 2 ? 'bg-white scale-125' : ''}`} />
+        ))}
       </div>
     </section>
   )

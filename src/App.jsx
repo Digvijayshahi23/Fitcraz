@@ -51,19 +51,15 @@ function HomePage({ loading, setLoading }) {
               <main>
                 <Suspense fallback={<div className="h-screen bg-brand-black" />}>
                   <Hero />
-                  <About />
                   <Programs />
                   <Trainers />
-                  <Membership />
-                  <Transformations />
+                  <Recovery />
                   <Schedule />
                   <WorkoutReels />
+                  <Transformations />
                   <Gallery />
-                  <Shop />
-                  <Recovery />
+                  <Membership />
                   <Testimonials />
-                  <FAQ />
-                  <Contact />
                   <Footer />
                 </Suspense>
               </main>

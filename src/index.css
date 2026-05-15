@@ -65,6 +65,15 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+  .text-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+    color: transparent;
+  }
+
+  .text-outline-red {
+    -webkit-text-stroke: 1px #FF3B30;
+    color: transparent;
+  }
 }
 
 /* Lenis Smooth Scroll */
