@@ -1,13 +1,14 @@
-# FITCRAZ
+# ANTIGRAVITY
 
-Train Insane. Stay Fit. Live Craz.
+ELEVATE HUMAN PERFORMANCE.
 
-FITCRAZ ELITE is a high-performance, cinematic athletic brand ecosystem designed for elite athletes and fitness enthusiasts.
+ANTIGRAVITY is a high-performance, cinematic luxury athletic brand ecosystem designed for elite athletes and fitness enthusiasts.
 
 ## Features
-- **Elite Training Protocols**: Access world-class coaching and programs.
-- **Cinematic Experience**: Immersive, high-fidelity UI/UX.
+- **Elite Training Protocols**: Access world-class coaching and physiological architects.
+- **Cinematic Experience**: Immersive, high-fidelity luxury UI/UX.
 - **Performance Optimized**: Built with React, Vite, and Framer Motion.
+- **Payment Integrated**: Razorpay integration for global access.
 
 ## Getting Started
 1. Install dependencies: `npm install`
