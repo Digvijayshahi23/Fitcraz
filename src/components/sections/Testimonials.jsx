@@ -90,7 +90,6 @@ export default function Testimonials() {
           {/* Decorative Elements */}
           <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-red/5 blur-[120px] rounded-full translate-x-1/2" />
         </motion.div>
-        </div>
       </div>
     </section>
   )
